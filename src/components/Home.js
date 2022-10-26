@@ -1,8 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import {userLogin} from '../api';
+import {loginUser} from '../api/api';
 
-const homePage = () => {
+const Home = () => {
     return (
         <div>
             <h1>Welcome to Stranger Things! This is your one stop shop to buy or sell all used items!</h1>
@@ -17,4 +17,4 @@ const homePage = () => {
     )
 }
 
-export default homePage;
+export default Home;

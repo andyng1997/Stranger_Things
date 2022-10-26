@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {loginUser} from '../api';
+import {loginUser} from '../api/api';
 
 
 const Login = ({setToken, navigate}) => {
@@ -18,7 +18,7 @@ const handleSubmit = async () => {
 }
 return (
     <div>
-        <h2>Welcome Registered Stranger!</h2>
+        <h2>Welcome Stranger!</h2>
         <form onSubmit={(event) => {
             event.preventDefault();
             handleSubmit();

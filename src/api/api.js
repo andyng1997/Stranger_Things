@@ -56,8 +56,8 @@ export const loginUser = async (username, password) => {
     
     return result;
     
-  } catch(ex) {
-    console.log('error logging in user')
+  } catch(error) {
+    console.error('There was an error loggin in the user')
   }
 }
 
@@ -101,8 +101,8 @@ export const createPost = async (token, {title, description, price, location, wi
     
     const result = await response.json();
     return result;
-  } catch(ex) {
-    console.log('error creating a new post')
+  } catch(error) {
+    console.error('There was an error with creating a new post')
   }
 }
 
@@ -149,8 +149,8 @@ export const updatePost = async ({token, title, description, price, location, wi
     
     const result = await response.json();
     return result;  
-  } catch(ex) {
-    console.log('error updating post')
+  } catch(error) {
+    console.error('There was error updating post')
   }
 }
 
@@ -167,8 +167,7 @@ export const createMessage = async ({postID, token, message}) => {
       message
      })
     })
-  } catch(ex) {
-    console.log(ex)
-    console.log('error creating message')
+  } catch(error) {
+    console.error('There was an error creating the message')
   }
 }
