@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import {loginUser} from '../api/api';
+
 
 const Home = () => {
     return (
@@ -11,7 +11,7 @@ const Home = () => {
             </button>
                 <h2>Don't have an account yet?</h2>
             <button>
-            <Link path='/register'>Register Here</Link>
+            <Link to='/register'>Register Here</Link>
             </button>
         </div>
     )

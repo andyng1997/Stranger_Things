@@ -11,7 +11,7 @@ export const getPosts = async(token) => {
     const results = await response.json();
     return results;
   } catch(error) {
-    console.log('error getting all posts')
+    console.error('error getting all posts')
   }
 }
 
@@ -33,7 +33,7 @@ export const registerUser = async (username, password) => {
     const result = await response.json();
     return result;
   } catch(error) {
-    console.log('error registering user')
+    console.error('There was an error with registering the user, please try again.')
   }
 }
 
@@ -74,8 +74,8 @@ export const getUserDetails = async (token) => {
     const result = await response.json();
     return result;
     
-  } catch(ex) {
-    console.log('error getting users details')
+  } catch(error) {
+    console.error('There was an error getting user details, please try again.')
   }
 }
 
