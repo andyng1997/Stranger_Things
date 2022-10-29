@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { deletePost } from '../api/api';
+import Search from './Search';
 
 
 const Posts = ({ posts, token }) => { 
-    const tempPosts = Array.from(posts);
-    const [filteredPosts, setFilteredPosts] = useState(tempPosts);
+    const [filteredPosts, setFilteredPosts] = useState(posts);
 
     const deletePostConfirm = async (token, postIdToDelete ) => {
-        const isConfirmed = window.confirm('Are you sure you want to delete this post?')
-        
+        window.confirm('Are you sure you want to delete this post?');
         const deleted = await deletePost(token, postIdToDelete)
         return deleted;
     }
-
+    console.log(posts, 'checkpost');
     return (
         <div id="outer div element"> 
             <div>
                 <h2>Items For Sale</h2>
-                <Search posts={posts} setFilteredPosts={setFilteredPosts} />
+                <Search posts= {posts} setFilteredPosts= {setFilteredPosts}></Search>
             </div>    
             { 
-                filteredPosts.map((post) => {
+            Array.isArray(posts) && 
+                posts.map((post) => {
                     const { description, location, price, title, _id, isAuthor } = post;
                     return (
                         <div key={_id}>

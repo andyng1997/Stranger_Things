@@ -32,8 +32,10 @@ const App = () => {
       setUser({});
   }
 
+
   async function fetchPosts() {
-      const results = await getPosts(token)
+      console.log("here");
+      const results = await getPosts(token);
       setPosts(results.data.posts);
   }
 
@@ -64,7 +66,7 @@ useEffect(() => {
     getMe();
 }, [token])
 
- 
+ console.log(posts, "app.js posts")
   return (
       <div>
           <Navbar logout={logout} token={token} />
@@ -100,7 +102,7 @@ useEffect(() => {
                     path='/posts'
                     element={<Posts
                         token={token}
-                        posts={Posts}
+                        posts={posts}
                         fetchPosts={fetchPosts}
                     />}
                 />
@@ -108,8 +110,9 @@ useEffect(() => {
                     exact path='/posts/create-post'
                     element={<CreatePost
                         token={token}
-                        fetchPosts={fetchPosts}
+                        setPosts={setPosts}
                         navigate={navigate}
+                        
                     />}
                 />
             <Route

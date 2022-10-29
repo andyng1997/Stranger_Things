@@ -8,7 +8,9 @@ export const getPosts = async(token) => {
         'Authorization': `Bearer ${token}`
       }
     });
+    console.log(response, 'response');
     const results = await response.json();
+    console.log (results, 'results api');
     return results;
   } catch(error) {
     console.error('error getting all posts')

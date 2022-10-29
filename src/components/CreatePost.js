@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import { createPost } from '../api/api';
 
-const CreatePost = ({ token, fetchPosts, navigate }) => {
+const CreatePost = ({ token, navigate, setPosts }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [price, setPrice] = useState('');
     const [willDeliver, setWillDeliver] = useState(false);
 
-    const newPost = {
-        title: '',
-        description: '',
-        price: '',
-        location: '',
-        willDeliver: false
-    }
-
     async function addPost() {
 
         const results = await createPost(token, { title: title, description: description, price: price, location: location, willDeliver: willDeliver })
-        fetchPosts();
-        navigate(`/posts`)
+        setPosts(previousPost=>[...previousPost, results]);
+        navigate(`/posts`);
+
     }
 
     return (
