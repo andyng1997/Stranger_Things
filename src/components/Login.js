@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {loginUser} from '../api/api';
+import { Navigate } from "react-router-dom";
 
 
 const Login = ({setToken, navigate}) => {
@@ -13,7 +14,7 @@ const handleSubmit = async () => {
         window.localStorage.setItem('token', result.data.token);
         navigate('/profile');
     } else {
-        console.log(result.error.message)
+        console.error(result.error.message)
     }
 }
 return (

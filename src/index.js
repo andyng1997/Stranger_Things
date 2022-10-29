@@ -6,11 +6,23 @@ import {
     Register,
     Login,
     Posts,
+    Navbar,
+    Search,
+    SinglePost,
+    Profile,
+    EditPost,
+    CreatePost,
 } from './components';
+
+import {
+    getUserDetails,
+    getPosts
+} from './api/api';
 
 const App = () => {
   const [token, setToken] = useState('');
   const [user, setUser] = useState({});
+  const [posts, setPosts] = useState([]);
 
   const navigate = useNavigate();
 
@@ -40,7 +52,7 @@ const App = () => {
       if (results.success) {
           setUser(results.data);
       } else {
-          console.log(results.error.message);
+          console.error(results.error.message);
       }
   }
 
@@ -55,6 +67,7 @@ useEffect(() => {
  
   return (
       <div>
+          <Navbar logout={logout} token={token} />
           <Routes>
             <Route
                     path='/'
@@ -68,20 +81,63 @@ useEffect(() => {
                       token={token}
 
                   />}
-              />
+                />
             <Route
                   path='/login'
                   element={<Login
                       setToken={setToken}
 
                   />}
-              />
+                />
+            <Route
+                    path='/profile'
+                    element={<Profile 
+                        user={user}
+                        token={token}
+                    />}
+                />
             <Route
                     path='/posts'
                     element={<Posts
                         token={token}
                         posts={Posts}
                         fetchPosts={fetchPosts}
+                    />}
+                />
+            <Route
+                    exact path='/posts/create-post'
+                    element={<CreatePost
+                        token={token}
+                        fetchPosts={fetchPosts}
+                        navigate={navigate}
+                    />}
+                />
+            <Route
+                    path='/singlePost'
+                    element={<SinglePost
+                        user={user}
+                        token={token}
+                        posts={posts}
+                    />}
+                />
+            <Route
+                    path='/posts/:postID'
+                    element={<SinglePost
+                        posts={posts}
+                        token={token}   
+                    />}
+                />
+            <Route
+                    exact path='/posts/edit-post/:postID'
+                    element={<EditPost
+                        posts={posts}
+                        token={token}
+                    />}
+                />
+            <Route
+                    path='/Search'
+                    element={<Search
+                    posts={posts}
                     />}
                 />
           </Routes>
