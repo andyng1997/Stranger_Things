@@ -11,6 +11,7 @@ const Posts = ({ posts, token }) => {
         window.confirm('Are you sure you want to delete this post?');
         const deleted = await deletePost(token, postIdToDelete)
         return deleted;
+  
     }
     console.log(posts, 'checkpost');
     return (
@@ -35,8 +36,9 @@ const Posts = ({ posts, token }) => {
                                         <button>
                                             <Link to={`/posts/edit-post/${_id}`}>Edit</Link>
                                         </button>
-                                        <button onClick={(event) => { deletePostConfirm(token, _id) }}>Delete Post 
+                                        <button onClick={(event) => { deletePostConfirm(token, _id) }}>Delete Post
                                         </button>
+                
                                     </>
                                 ) : (
                                     <Link to={`/posts/${_id}`}>View Post</Link>

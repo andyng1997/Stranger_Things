@@ -52,7 +52,7 @@ const EditPost= ({ posts, token }) => {
             <input
                 type='checkbox'
                 checked={newWillDeliver}
-                onChange={(event) => newWillDeliver(event.target.checked)} />
+                onChange={(event) => setNewWillDeliver(event.target.checked)} />
             <button type='submit'>Edit Post</button>
         </form>
     )
