@@ -9,10 +9,10 @@ const CreatePost = ({ token, fetchPosts, navigate }) => {
     const [willDeliver, setWillDeliver] = useState(false);
 
     const newPost = {
-        title: 'Husband for sale!',
-        description: 'million-dollar life insurance policy',
-        price: '$10',
-        location: 'Fishing on a Lake',
+        title: '',
+        description: '',
+        price: '',
+        location: '',
         willDeliver: false
     }
 

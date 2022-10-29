@@ -1,20 +1,25 @@
 import React, {useState} from "react";
 import {loginUser} from '../api/api';
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-const Login = ({setToken, navigate}) => {
+const Login = ({setToken}) => {
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 
+const redirect= useNavigate();
+
 const handleSubmit = async () => {
+
     const result = await loginUser(username, password);
+ 
     if (result.success) {
         setToken(result.data.token);
         window.localStorage.setItem('token', result.data.token);
-        navigate('/profile');
+        redirect('/profile');
     } else {
-        console.error(result.error.message)
+        window.alert("Username or Password is incorrect, please try again");
+        console.error(result.error.message);
     }
 }
 return (

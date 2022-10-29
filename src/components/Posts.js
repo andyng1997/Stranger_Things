@@ -18,7 +18,7 @@ const Posts = ({ posts, token }) => {
         <div id="outer div element"> 
             <div>
                 <h2>Items For Sale</h2>
-                <SearchItems posts={posts} setFilteredPosts={setFilteredPosts} />
+                <Search posts={posts} setFilteredPosts={setFilteredPosts} />
             </div>    
             { 
                 filteredPosts.map((post) => {

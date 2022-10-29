@@ -57,7 +57,7 @@ export const loginUser = async (username, password) => {
     return result;
     
   } catch(error) {
-    console.error('There was an error loggin in the user')
+    console.error('There was an error logging in the user')
   }
 }
 
