@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 
 const Search = ({ posts, setFilteredPosts }) => {
 
@@ -18,8 +18,7 @@ const Search = ({ posts, setFilteredPosts }) => {
             return title.includes(keyword.toLowerCase()) || description.includes(keyword.toLowerCase())
         })
         console.log(resultsArray,'filter check result');
-        return(
-        setFilteredPosts(resultsArray));
+        setFilteredPosts(resultsArray);
     }
     console.log(posts,`check posts`);
     return (
