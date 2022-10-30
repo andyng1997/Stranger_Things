@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { createMessage } from '../api/api';
+import { useNavigate } from 'react-router-dom';
+
 
 const SendMessage = ({ postID, token }) => {
     const [message, setMessage] = useState({ content: '' });
-
+    const navigate= useNavigate();
     async function addMessage() {
         await createMessage({ postID, message, token })
     }
@@ -12,7 +14,16 @@ const SendMessage = ({ postID, token }) => {
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
+            if (token != ''){
             addMessage();
+            console.log('message has been sent');
+            window.alert('Message has been sent to user, now redirecting back to all posts.');
+            setMessage({content:''})
+            navigate('/posts');
+            } else {
+                window.confirm('Sorry you need to be logged in to send a message. Click Yes to be redirected to the login screen');
+                navigate('/login')
+            }
         }}>
             <input
                 type='text'

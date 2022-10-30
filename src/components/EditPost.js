@@ -33,27 +33,48 @@ const EditPost= ({ posts, token }) => {
             event.preventDefault();
             editPost();
         } }>
-            <input
-                type='text'
-                placeholder={title}
-                onChange={(event) => setNewTitle(event.target.value)} />
-            <input
-                type='text'
-                placeholder={description}
-                onChange={(event) => setNewDescription(event.target.value)} />
-            <input
-                type='text'
-                placeholder={location}
-                onChange={(event) => setNewLocation(event.target.value)} />
-            <input
-                type='text'
-                placeholder={price}
-                onChange={(event) => setNewPrice(event.target.value)} />
-            <input
-                type='checkbox'
-                checked={newWillDeliver}
-                onChange={(event) => setNewWillDeliver(event.target.checked)} />
+            <div>
+                <label>New Title:</label>
+                <input
+                    type='text'
+                    placeholder={title}
+                    onChange={(event) => setNewTitle(event.target.value)} />
+            </div>
+            
+            <div>
+                <label>New Description:</label>
+                <input
+                    type='text'
+                    placeholder={description}
+                    onChange={(event) => setNewDescription(event.target.value)} />
+            </div>
+
+            <div>
+                <label>New Location:</label>
+                <input
+                    type='text'
+                    placeholder={location}
+                    onChange={(event) => setNewLocation(event.target.value)} />
+            </div>
+
+            <div>
+                <label>New Price:</label>
+                <input
+                    type='text'
+                    placeholder={price}
+                    onChange={(event) => setNewPrice(event.target.value)} />
+            </div>
+
+            <div>
+                <label>Will deliver? Click the box for yes:</label>
+                <input
+                    type='checkbox'
+                    checked={newWillDeliver}
+                    onChange={(event) => setNewWillDeliver(event.target.checked)} />
+            </div>
+    
             <button type='submit'>Edit Post</button>
+           
         </form>
     )
 }

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {loginUser} from '../api/api';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 const Login = ({setToken}) => {
@@ -16,6 +16,7 @@ const handleSubmit = async () => {
     if (result.success) {
         setToken(result.data.token);
         window.localStorage.setItem('token', result.data.token);
+        window.alert('You have successfully logged in!')
         redirect('/profile');
     } else {
         window.alert("Username or Password is incorrect, please try again");
@@ -39,8 +40,11 @@ return (
                 onChange={(event) => setPassword(event.target.value)} />
             <button type='submit'>Submit</button>
         </form>
+        <div>
+            <h4>Don't have an account ? Click on the register button below.</h4>
+            <Link to='/register'>Register</Link>
+        </div>
     </div>
-
 )
 }
 

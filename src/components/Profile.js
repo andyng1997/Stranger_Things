@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Login} from './Login';
 
-const Profile = ({ user, username }) => {
+const Profile = ({ user }) => {
     const messages = user.messages;
     const userID = user._id;
-
     return (
         <div>
             <div>
-                <h1>Welcome {`${username}`}!</h1>
+                <h1>Welcome Not Stranger!</h1>  
                 <h2>Create a new post</h2>
                 <button>
                     <Link to='/posts/create-post'>Add Post</Link>

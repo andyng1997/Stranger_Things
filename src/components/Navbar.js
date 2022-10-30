@@ -17,16 +17,13 @@ const Navbar = ({ logout, token }) => {
                 <Link to='/'>Home</Link>
                 <Link to={postsTarget}>Posts</Link>
                 <Link to='/profile'>Profile</Link>
-                {/* <Link to='/create-post'>Create Post</Link> */}
-                {/* <Link to='/edit-post'>Edit Post</Link> */}
-                {/* <Link to='/single-post-view'>Single Post View</Link> */}
                 {
                     token ? (
                         <Link to='/' onClick={() => logout()}>Logout</Link>
                         
                     ) : (
                         <>
-                            {/* <Link to='/register'>Register</Link> */}
+                            <Link to='/register'>Register</Link>
                             <Link to='/login'>Login</Link>
                         </>
                     )

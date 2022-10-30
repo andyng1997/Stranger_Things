@@ -11,6 +11,7 @@ const Register = ({ setToken, navigate }) => {
         if (result.success) {
             setToken(result.data.token);
             window.localStorage.setItem('token', result.data.token);
+            window.alert('You have successfully registered!');
             navigate('/profile');
         } else {
             window.alert('You are already registered.  Please login with your Username and Password.')
