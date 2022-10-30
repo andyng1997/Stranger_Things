@@ -22,7 +22,7 @@ const Posts = ({ posts, token }) => {
             </div>    
             { 
             Array.isArray(posts) && 
-                posts.map((post) => {
+                filteredPosts.map((post) => {
                     const { description, location, price, title, _id, isAuthor } = post;
                     return (
                         <div key={_id}>
