@@ -10,10 +10,10 @@ const Posts = ({ posts, token }) => {
     const deletePostConfirm = async (token, postIdToDelete ) => {
         window.confirm('Are you sure you want to delete this post?');
         const deleted = await deletePost(token, postIdToDelete)
-        return deleted;
+        setFilteredPosts(posts);
   
     }
-    console.log(posts, 'checkpost');
+//ask for help updating state on post after creating post and deleting post.
     return (
         <div id="outer div element"> 
             <div>

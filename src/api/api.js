@@ -121,9 +121,9 @@ export const deletePost = async (token, postID) => {
     
     const data = await response.json();
     return data;
-  } catch(ex) {
-    console.log(error)
-    console.log('error deleting post')
+  } catch(error) {
+    console.error(error)
+    console.error('There was an error deleting the post')
   }
 }
 
