@@ -1,0 +1,57 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 60s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#header, #postsHeader{
+    text-align: center;
+    font-size: 70px;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+      0px 0px 20px #b393d3;
+}
+
+#register{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+      0px 0px 20px #b393d3
+}
+
+#button {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+}
+
+#image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    width: 500px;
+}
+
+#posts{
+    border-style:solid;
+    border-width: thin;
+    border-color: #FFFFFF;
+}

@@ -12,7 +12,8 @@ const CreatePost = ({ token, navigate, setPosts }) => {
     async function addPost() {
 
         const results = await createPost(token, { title: title, description: description, price: price, location: location, willDeliver: willDeliver })
-        setPosts(previousPost=>[...previousPost, results]);
+            setPosts(previousPost=>[...previousPost, results]);
+
     }
 
     return (
