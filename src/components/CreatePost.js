@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createPost } from '../api/api';
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 const CreatePost = ({ token, navigate, setPosts }) => {
     const [title, setTitle] = useState('');

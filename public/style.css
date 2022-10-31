@@ -49,3 +49,9 @@ margin: 0 auto;
     margin:0 auto;
     width: 500px;
 }
+
+#posts{
+    border-style:solid;
+    border-width: thin;
+    border-color: #FFFFFF;
+}

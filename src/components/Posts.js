@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { deletePost } from '../api/api';
 import Search from './Search';
-
+import { Button } from 'semantic-ui-react'
 
 const Posts = ({ posts, token }) => { 
     const [filteredPosts, setFilteredPosts] = useState(posts);
@@ -17,7 +17,7 @@ const Posts = ({ posts, token }) => {
     return (
         <div id="outer div element"> 
             <div>
-                <h2>Items For Sale</h2>
+                <h1>Items For Sale</h1>
                 <Search posts= {posts} setFilteredPosts= {setFilteredPosts}></Search>
             </div>    
             { 
@@ -25,23 +25,25 @@ const Posts = ({ posts, token }) => {
                 filteredPosts.map((post) => {
                     const { description, location, price, title, _id, isAuthor } = post;
                     return (
-                        <div key={_id}>
-                            <h3>{title}</h3>
+                        <div key={_id} class="ui basic segment" id="posts">
+                            <h2 class="ui header">{title}</h2>
                             <p>Description: {description}</p>
                             <p>Price: {price}</p>
                             <p>Location: {location}</p>
                             {
                                 isAuthor ? (
                                     <>
-                                        <button>
+                                        <Button>
                                             <Link to={`/posts/edit-post/${_id}`}>Edit</Link>
-                                        </button>
-                                        <button onClick={(event) => { deletePostConfirm(token, _id) }}>Delete Post
-                                        </button>
+                                        </Button>
+                                        <Button onClick={(event) => { deletePostConfirm(token, _id) }}>Delete Post
+                                        </Button>
                 
                                     </>
                                 ) : (
+                                    <Button>
                                     <Link to={`/posts/${_id}`}>View Post</Link>
+                                    </Button>
                                 )
                             }
                         </div>
