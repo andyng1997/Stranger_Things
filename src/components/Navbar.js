@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const Navbar = ({ logout, token }) => {
 
     const postsTarget = {
@@ -13,21 +15,23 @@ const Navbar = ({ logout, token }) => {
 
     return (
         <header>
-            <nav>
-                <Link to='/'>Home</Link>
-                <Link to={postsTarget}>Posts</Link>
-                <Link to='/profile'>Profile</Link>
+            <nav class='ui inverted segment'>
+                <nav class='ui inverted secondary menu'>
+                <a class='item'><Link to='/'>Home</Link></a>
+                <a class='item'><Link to={postsTarget}>Posts</Link></a>
+                <a class='item'><Link to='/profile'>Profile</Link></a>
                 {
                     token ? (
-                        <Link to='/' onClick={() => logout()}>Logout</Link>
+                        <a class='item'><Link to='/' onClick={() => logout()}>Logout</Link></a>
                         
                     ) : (
                         <>
-                            <Link to='/register'>Register</Link>
-                            <Link to='/login'>Login</Link>
+                            <a class='item'><Link to='/register'>Register</Link></a>
+                            <a class='item'><Link to='/login'>Login</Link></a>
                         </>
                     )
                 }
+            </nav>
             </nav>
         </header>
     )
