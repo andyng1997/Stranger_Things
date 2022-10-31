@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {loginUser} from '../api/api';
 import { useNavigate, Link } from "react-router-dom";
-
+import { Button } from 'semantic-ui-react';
 
 const Login = ({setToken}) => {
 const [username, setUsername] = useState('');
@@ -25,7 +25,7 @@ const handleSubmit = async () => {
 }
 return (
     <div>
-        <h2>Welcome Stranger!</h2>
+        <h2>Welcome Stranger! Please sign in below.</h2>
         <form onSubmit={(event) => {
             event.preventDefault();
             handleSubmit();
@@ -42,7 +42,7 @@ return (
         </form>
         <div>
             <h4>Don't have an account ? Click on the register button below.</h4>
-            <Link to='/register'>Register</Link>
+            <Button><Link to='/register'>Register</Link></Button>
         </div>
     </div>
 )
