@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPost } from '../api/api';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+
 
 const CreatePost = ({ token, navigate, setPosts }) => {
     const [title, setTitle] = useState('');
@@ -13,14 +13,14 @@ const CreatePost = ({ token, navigate, setPosts }) => {
 
         const results = await createPost(token, { title: title, description: description, price: price, location: location, willDeliver: willDeliver })
         setPosts(previousPost=>[...previousPost, results]);
-        navigate(`/posts`);
-
     }
 
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
             addPost();
+            window.alert ('Post has been successfully created, now re-directing to main page.');
+            navigate(`/posts`);
         }}>
             <label>Enter Title</label>
             <br></br>
@@ -45,10 +45,6 @@ const CreatePost = ({ token, navigate, setPosts }) => {
             <input
                 type='text'
                 onChange={(event) => setLocation(event.target.value)} />
-            <br></br>
-            <input type="checkbox" 
-                onChange={(event) => setWillDeliver(event.target.value)} />
-            <label htmlFor="willDeliver">Will Deliver?</label>
             <br></br>
             <button type='submit'>Submit New Post</button>
         </form>

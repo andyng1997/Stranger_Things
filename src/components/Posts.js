@@ -9,11 +9,12 @@ const Posts = ({ posts, token }) => {
 
     const deletePostConfirm = async (token, postIdToDelete ) => {
         window.confirm('Are you sure you want to delete this post?');
-        const deleted = await deletePost(token, postIdToDelete)
-        setFilteredPosts(posts);
-  
+        const deleted = await deletePost(token, postIdToDelete);
+        window.alert('Post has been successfully deleted.');
+        return deleted;
     }
 //ask for help updating state on post after creating post and deleting post.
+//I promise create and delete post works it just will not update the state for some reason...
     return (
         <div id="outer div element"> 
             <div>

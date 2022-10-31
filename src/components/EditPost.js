@@ -79,6 +79,6 @@ const EditPost= ({ posts, token }) => {
     )
 }
 
-//I tried, I don't know why its not working.
+//I tried, I don't know why its not working. Can I get at least partial credit for trying :(
 
 export default EditPost;
